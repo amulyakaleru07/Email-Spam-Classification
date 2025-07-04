@@ -12,9 +12,11 @@ nltk.data.path.append(os.path.expanduser('~/.nltk_data'))
 
 ps = PorterStemmer()
 
+from nltk.tokenize import wordpunct_tokenize
+
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
+    text = wordpunct_tokenize(text)  # ✅ No punkt needed
 
     y = []
     for i in text:
