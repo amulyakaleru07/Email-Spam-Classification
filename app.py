@@ -1,14 +1,27 @@
+# import streamlit as st
+# import pickle
+# import string
+# import nltk
+# nltk.download('punkt')
+# from nltk.corpus import stopwords
+# import nltk
+# from nltk.stem.porter import PorterStemmer
+
+# ps = PorterStemmer()
 import streamlit as st
 import pickle
 import string
 import nltk
-nltk.download('punkt')
 from nltk.corpus import stopwords
-import nltk
 from nltk.stem.porter import PorterStemmer
 
-ps = PorterStemmer()
+@st.cache_data
+def download_punkt():
+    nltk.download('punkt')
 
+download_punkt()
+
+ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
