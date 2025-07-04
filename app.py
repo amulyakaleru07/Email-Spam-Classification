@@ -2,19 +2,17 @@ import streamlit as st
 import nltk
 import pickle
 import string
+import os
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-nltk.data.path.append(r"C:\Users\cs3006tu\AppData\Roaming\nltk_data")
 
+# ✅ Point to the correct NLTK data path
+nltk.data.path.append(os.path.expanduser('~/.nltk_data'))
 
 ps = PorterStemmer()
 
 def transform_text(text):
-    # ✅ Ensure punkt is present when function runs
-    nltk.download('punkt')
-    nltk.download('stopwords')
-
     text = text.lower()
     text = nltk.word_tokenize(text)
 
@@ -37,20 +35,3 @@ def transform_text(text):
         y.append(ps.stem(i))
 
     return " ".join(y)
-
-tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
-model = pickle.load(open('model.pkl', 'rb'))
-
-st.title("Email/SMS Spam Classifier")
-
-input_sms = st.text_area("Enter the message")
-
-if st.button('Predict'):
-    transformed_sms = transform_text(input_sms)
-    vector_input = tfidf.transform([transformed_sms])
-    result = model.predict(vector_input)[0]
-
-    if result == 1:
-        st.header("Spam")
-    else:
-        st.header("Not Spam")
