@@ -2,25 +2,14 @@ import streamlit as st
 import nltk
 import os
 import pickle
+import string
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
-
-# ✅ Make sure it exists
-if not os.path.exists(nltk_data_dir):
-    os.makedirs(nltk_data_dir)
-
-# ✅ Add this path to nltk’s known data paths
+# ✅ Tell NLTK to use the local nltk_data folder
+nltk_data_dir = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(nltk_data_dir)
-
-@st.cache_data
-def setup_nltk():
-    nltk.download('punkt', download_dir=nltk_data_dir)
-    nltk.download('stopwords', download_dir=nltk_data_dir)
-
-setup_nltk()
 
 ps = PorterStemmer()
 
