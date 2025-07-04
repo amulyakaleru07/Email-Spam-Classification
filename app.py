@@ -11,6 +11,9 @@ from nltk.stem.porter import PorterStemmer
 nltk_data_dir = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(nltk_data_dir)
 
+# ✅ Make sure punkt is there
+nltk.download('punkt', download_dir=nltk_data_dir)
+
 ps = PorterStemmer()
 
 def transform_text(text):
