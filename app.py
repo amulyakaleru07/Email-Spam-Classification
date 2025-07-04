@@ -1,13 +1,3 @@
-# import streamlit as st
-# import pickle
-# import string
-# import nltk
-# nltk.download('punkt')
-# from nltk.corpus import stopwords
-# import nltk
-# from nltk.stem.porter import PorterStemmer
-
-# ps = PorterStemmer()
 import streamlit as st
 import pickle
 import string
