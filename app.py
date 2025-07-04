@@ -5,7 +5,6 @@ import os
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# ✅ Define custom local nltk_data path INSIDE your repo
 nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
 
 # ✅ Make sure it exists
