@@ -5,7 +5,8 @@ import string
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-nltk.data.path.append(os.path.expanduser('~/.nltk_data'))
+nltk.data.path.append(r"C:\Users\cs3006tu\AppData\Roaming\nltk_data")
+
 
 ps = PorterStemmer()
 
